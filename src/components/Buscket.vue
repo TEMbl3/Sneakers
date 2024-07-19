@@ -51,7 +51,7 @@ defineProps({
 			</div>
 		</div>
 		<div v-if="buscketItems.length == 0"
-			class="w-[500px] gap-3 max-[520px]:w-full border-l z-5 right-0 h-full fixed top-0 overflow-y-scroll flex flex-col items-center justify-center">
+			class="w-[500px] gap-3 max-[520px]:w-full border-l z-5 right-0 h-full relative top-0 overflow-y-scroll flex flex-col items-center justify-center">
 			<img src="../../public/package-icon.png" width="120px" alt="">
 			<h2 class="font-bold text-2xl">Корзина пустая</h2>
 			<h3 class="text-center opacity-40 text-lg">Добавьте хотя бы одну пару <br> кроссовок, чтобы сделать заказ.</h3>
