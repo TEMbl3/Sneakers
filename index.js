@@ -1,7 +1,7 @@
 let express = require(`express`)
 let app = express()
 let cors = require(`cors`)
-const port = process.env.PORT || 3030;
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser')
 const axios = require('axios')
 const crypto = require('crypto')
