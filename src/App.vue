@@ -7,6 +7,7 @@ import Card from './components/Card.vue'
 import Poisk from './components/Poisk.vue'
 import Buscket from './components/Buscket.vue'
 
+
 const items = ref([])
 const hidden = ref(true)
 const favouriteItems = ref(null)
@@ -20,6 +21,8 @@ const toggle = () => {
   buscketItems.value = items.value.filter(item => item.added)
   Price.value = buscketItems.value.reduce((sum, item) => sum + item.price, 0)
 }
+
+
 
 const onClickAdd = (id) => {
   const item = items.value.find(item => item.id === id)
@@ -62,7 +65,7 @@ const AllFavourite = () => {
 }
 const getAllItems = async () => {
   try {
-    const { data } = await axios.get('http://localhost:3000/Sneakers')
+    const { data } = await axios.get('https://sneakers-ljcv6noez-tembl3s-projects.vercel.app/Sneakers')
     items.value = data
     favouriteItems.value = null
     items.value = items.value.map(item => ({
@@ -78,7 +81,7 @@ const getAllItems = async () => {
 const pay = async () => {
   try {
     Price.value = buscketItems.value.reduce((sum, item) => sum + item.price, 0)
-    const response = await axios.post('http://localhost:3000/create-payment', {
+    const response = await axios.post('https://sneakers-ljcv6noez-tembl3s-projects.vercel.app/create-payment', {
       amount: (Price.value / 100 * 105),
     });
     window.location.href = response.data.confirmation.confirmation_url;
@@ -97,7 +100,7 @@ onMounted(
   <div class="w-3/4 m-auto shadow shadow-slate-300 bg-white mt-10 rounded-3xl pb-7 mb-5">
     <Header :getAllItems="getAllItems" :AllFavourite="AllFavourite" :hidden="hidden" :toggle="toggle" />
     <Poisk :AllFavourite="AllFavourite" :favouriteItems :text="text" />
-    <div v-if="!favouriteItems"
+    <div v-auto-animate v-if="!favouriteItems"
       class="grid xl:grid-cols-3 2xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 max-[500px]:mx-5  mx-10 mt-8 gap-8">
       <Card :onClickFavourite="onClickFavourite" :item="item" :onClickAdd="onClickAdd" v-for="(item, index) in items" />
     </div>
@@ -109,6 +112,7 @@ onMounted(
   </div>
   <Buscket :pay="pay" :Price="Price" :removeSneaker="removeSneaker" v-if="!hidden" :buscketItems="buscketItems" :hidden="hidden"
     :toggle="toggle" />
+    <router-view></router-view>
 </template>
 
 <style>

@@ -1,4 +1,5 @@
 <script setup>
+
 defineProps({
 	buscketItems: Array,
 	hidden: Boolean,
@@ -19,7 +20,7 @@ defineProps({
 				<img class="rotate-180 opacity-60 w-5" src="../../public/arrow-next.svg" alt="">
 				<h2 class="text-2xl font-bold">Корзина</h2>
 			</div>
-			<div v-if="buscketItems.length > 0" class="mx-10 max-[500px]:mx-3 max-[500px]:mr-7 mt-5 flex flex-col gap-5 mb-6">
+			<div v-auto-animate v-if="buscketItems.length > 0" class="mx-10 max-[500px]:mx-3 max-[500px]:mr-7 mt-8 flex flex-col gap-5 mb-10">
 				<div v-for="item in buscketItems" :key="item.id" class="full relative p-7 max-[400px]:p-5  border rounded-2xl">
 					<div class="flex gap-4 items-center max-[500px]:gap-2">
 						<img class="h-full max-[500px]:w-16 w-28 object-fill" :src="`../../public${item.imageUrl}`" alt="">
@@ -34,7 +35,7 @@ defineProps({
 			</div>
 		</div>
 		<div v-if="buscketItems.length > 0" class="mb-14">
-			<div class="flex flex-col gap-6">
+			<div class="flex flex-col gap-6 mt-5">
 				<div class="flex mx-10 items-end">
 					<h2 class="text-lg">Итого:</h2>
 					<div class="flex-1 border-b border-gray border-dashed"></div>
@@ -51,7 +52,7 @@ defineProps({
 			</div>
 		</div>
 		<div v-if="buscketItems.length == 0"
-			class="w-[500px] gap-3 max-[520px]:w-full border-l z-5 right-0 h-full relative top-0 overflow-y-scroll flex flex-col items-center justify-center">
+		class="w-[500px] gap-3 max-[520px]:w-full border-l z-5 right-0 h-full relative top-0 overflow-y-scroll flex flex-col items-center justify-center">
 			<img src="../../public/package-icon.png" width="120px" alt="">
 			<h2 class="font-bold text-2xl">Корзина пустая</h2>
 			<h3 class="text-center opacity-40 text-lg">Добавьте хотя бы одну пару <br> кроссовок, чтобы сделать заказ.</h3>
@@ -66,3 +67,8 @@ defineProps({
 	</div>
 	<div class="bg-black opacity-70 z-15 w-full h-full fixed top-0" />
 </template>
+<style>
+	.z-4{
+		width: 6.25rem;
+	}
+</style>

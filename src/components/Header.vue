@@ -23,7 +23,7 @@ defineProps({
 				</div>
 				<div class="flex gap-3 items-center max-[800px]:gap-2" @click="AllFavourite()">
 					<img src="../../public/heart.svg" alt="">
-					<li class="hover:text-black cursor-pointer transition"><span>Закладки</span></li>
+					<button to="/favourites" class="hover:text-black cursor-pointer transition"><span>Закладки</span></button>
 				</div>
 				<div class="flex gap-3 items-center max-[800px]:gap-2">
 					<img src="../../public/profile.svg" alt="">
