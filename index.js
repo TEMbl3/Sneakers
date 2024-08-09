@@ -16,7 +16,7 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 
 let mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/LuxSneakers')
+mongoose.connect('mongodb+srv://artemkh23:1BDyzuzO7W5M1iF1@cluster.iuczapd.mongodb.net/LuxSneakers')
 
 let sneakerSchema = new mongoose.Schema({
   id: Number,
