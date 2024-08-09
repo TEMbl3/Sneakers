@@ -65,7 +65,7 @@ const AllFavourite = () => {
 }
 const getAllItems = async () => {
   try {
-    const { data } = await axios.get('https://sneakers-ljcv6noez-tembl3s-projects.vercel.app/Sneakers')
+    const { data } = await axios.get('https://sneakersvue.onrender.com/Sneakers')
     items.value = data
     favouriteItems.value = null
     items.value = items.value.map(item => ({
@@ -81,7 +81,7 @@ const getAllItems = async () => {
 const pay = async () => {
   try {
     Price.value = buscketItems.value.reduce((sum, item) => sum + item.price, 0)
-    const response = await axios.post('https://sneakers-ljcv6noez-tembl3s-projects.vercel.app/create-payment', {
+    const response = await axios.post('https://sneakersvue.onrender.com/create-payment', {
       amount: (Price.value / 100 * 105),
     });
     window.location.href = response.data.confirmation.confirmation_url;
